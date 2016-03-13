@@ -1,10 +1,9 @@
 \contentsline {chapter}{摘\hspace {\ccwd }要}{I}{chapter*.1}
 \contentsline {chapter}{ABSTRACT}{II}{chapter*.2}
 \contentsline {chapter}{目\hspace {\ccwd }录}{III}{chapter*.3}
-\contentsline {chapter}{表格索引}{V}{section*.4}
-\contentsline {chapter}{插图索引}{VI}{section*.6}
-\contentsline {chapter}{算法索引}{VII}{section*.8}
-\contentsline {chapter}{主要符号对照表}{VIII}{chapter*.10}
+\contentsline {chapter}{表格索引}{VI}{section*.4}
+\contentsline {chapter}{插图索引}{VII}{section*.6}
+\contentsline {chapter}{算法索引}{VIII}{section*.8}
 \contentsline {chapter}{\numberline {第一章\hspace {0.3em}}绪论}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}研究背景与意义}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}研究内容}{3}{section.1.2}
@@ -30,28 +29,52 @@
 \contentsline {section}{\numberline {3.1}用户画像的数据来源}{19}{section.3.1}
 \contentsline {section}{\numberline {3.2}标签权重计算}{20}{section.3.2}
 \contentsline {section}{\numberline {3.3}用户画像建模方式}{20}{section.3.3}
-\contentsline {section}{\numberline {3.4}用户画像的维度分析}{21}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}属性维度}{22}{subsection.3.4.1}
+\contentsline {section}{\numberline {3.4}用户画像的维度分析}{22}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}属性维度}{23}{subsection.3.4.1}
 \contentsline {subsection}{\numberline {3.4.2}兴趣维度}{23}{subsection.3.4.2}
 \contentsline {subsection}{\numberline {3.4.3}社交维度}{23}{subsection.3.4.3}
 \contentsline {subsection}{\numberline {3.4.4}行为维度}{24}{subsection.3.4.4}
-\contentsline {section}{\numberline {3.5}用户画像评估方法}{25}{section.3.5}
-\contentsline {subsection}{\numberline {3.5.1}线下测试}{25}{subsection.3.5.1}
-\contentsline {subsection}{\numberline {3.5.2}线上A/B测试}{25}{subsection.3.5.2}
-\contentsline {section}{\numberline {3.6}总结}{27}{section.3.6}
-\contentsline {chapter}{\numberline {第四章\hspace {0.3em}}用户兴趣探索}{28}{chapter.4}
-\contentsline {section}{\numberline {4.1}用户行为数据的存储}{28}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}HDFS的体系架构}{29}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}MapReduce体系架构}{30}{subsection.4.1.2}
-\contentsline {subsection}{\numberline {4.1.3}Hbase数据管理}{31}{subsection.4.1.3}
-\contentsline {subsection}{\numberline {4.1.4}Hive数据管理}{32}{subsection.4.1.4}
+\contentsline {section}{\numberline {3.5}用户画像应用场景}{25}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}优化手机主题市场供求}{25}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}提高新人留存率}{25}{subsection.3.5.2}
+\contentsline {subsection}{\numberline {3.5.3}用户消费等级分群}{25}{subsection.3.5.3}
+\contentsline {subsection}{\numberline {3.5.4}用户流失预警}{26}{subsection.3.5.4}
+\contentsline {subsection}{\numberline {3.5.5}反作弊}{26}{subsection.3.5.5}
+\contentsline {section}{\numberline {3.6}总结}{26}{section.3.6}
+\contentsline {chapter}{\numberline {第四章\hspace {0.3em}}用户兴趣探索}{27}{chapter.4}
+\contentsline {section}{\numberline {4.1}用户行为数据的存储}{27}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}HDFS的体系架构}{28}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}MapReduce体系架构}{29}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}Hbase数据管理}{30}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.4}Hive数据管理}{31}{subsection.4.1.4}
 \contentsline {section}{\numberline {4.2}用户行为数据的的预处理}{33}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}背景}{34}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}特征提取}{34}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}特征获取方式}{35}{subsection.4.2.3}
-\contentsline {subsection}{\numberline {4.2.4}用户行为数据预处理}{35}{subsection.4.2.4}
-\contentsline {section}{\numberline {4.3}用户兴趣探索的算法模型}{39}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}基本概念概述}{39}{subsection.4.3.1}
-\contentsline {chapter}{参考文献}{41}{chapter*.29}
-\contentsline {chapter}{致\hspace {\ccwd }谢}{42}{chapter*.30}
+\contentsline {subsection}{\numberline {4.2.1}背景}{33}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}特征提取}{33}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}特征获取方式}{34}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}用户行为数据预处理}{34}{subsection.4.2.4}
+\contentsline {section}{\numberline {4.3}用户兴趣探索的算法模型}{37}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}基本概念概述}{37}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}用户异常兴趣探测算法}{37}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}长尾标签抽取算法}{39}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}用户满意度量化算法}{39}{subsection.4.3.4}
+\contentsline {subsection}{\numberline {4.3.5}标签权重的线性衰减}{41}{subsection.4.3.5}
+\contentsline {section}{\numberline {4.4}用户兴趣探索评估方法}{41}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}线下测试}{43}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}线上A/B测试}{43}{subsection.4.4.2}
+\contentsline {section}{\numberline {4.5}总结}{45}{section.4.5}
+\contentsline {chapter}{\numberline {第五章\hspace {0.3em}}动态推荐系统设计}{46}{chapter.5}
+\contentsline {section}{\numberline {5.1}前言}{46}{section.5.1}
+\contentsline {section}{\numberline {5.2}用户画像和兴趣探索模块}{47}{section.5.2}
+\contentsline {section}{\numberline {5.3}推荐主题模块}{48}{section.5.3}
+\contentsline {section}{\numberline {5.4}推荐算法模块}{50}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}推荐算法}{50}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}AB测试}{52}{subsection.5.4.2}
+\contentsline {section}{\numberline {5.5}动态推荐系统底层架构}{53}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}基于Spark}{53}{subsection.5.5.1}
+\contentsline {subsection}{\numberline {5.5.2}基于Kiji框架}{53}{subsection.5.5.2}
+\contentsline {subsection}{\numberline {5.5.3}基于Storm}{54}{subsection.5.5.3}
+\contentsline {section}{\numberline {5.6}量化评估推荐系统}{55}{section.5.6}
+\contentsline {section}{\numberline {5.7}总结}{55}{section.5.7}
+\contentsline {chapter}{参考文献}{57}{chapter*.37}
+\contentsline {chapter}{致\hspace {\ccwd }谢}{58}{chapter*.38}
 \contentsfinish 

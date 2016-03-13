@@ -3,13 +3,16 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces SlopeOne 示例\relax }}{11}{table.caption.14}
+\contentsline {table}{\numberline {2.2}{\ignorespaces 推荐系统评测方法\relax }}{14}{table.caption.15}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces SlopeOne 示例\relax }}{11}{table.caption.15}
-\contentsline {table}{\numberline {2.2}{\ignorespaces 推荐系统评测方法\relax }}{14}{table.caption.16}
+\contentsline {table}{\numberline {3.1}{\ignorespaces 标签权重计算公式\relax }}{20}{table.caption.18}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces 标签权重计算公式\relax }}{20}{table.caption.19}
-\contentsline {table}{\numberline {3.2}{\ignorespaces A/B测试主要评估指标\relax }}{26}{table.caption.24}
+\contentsline {table}{\numberline {4.1}{\ignorespaces 用户行为和其权重\relax }}{41}{table.caption.28}
+\contentsline {table}{\numberline {4.2}{\ignorespaces A/B测试主要评估指标\relax }}{44}{table.caption.33}
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces 推荐系统主要算法比较\relax }}{50}{table.caption.35}
+\contentsline {table}{\numberline {5.2}{\ignorespaces MR和spark对比\relax }}{54}{table.caption.36}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsfinish 

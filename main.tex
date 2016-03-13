@@ -94,13 +94,13 @@
 	\ustcloa
 	
 	% 摘要
-	\include{chapter/abstract}%此文件中含有中英文摘要
+	 %\include{chapter/abstract}%此文件中含有中英文摘要
 \else
 	%%%%%%%%%%%%%%%%%
 	%硕博论文修改这里
 	%%%%%%%%%%%%%%%%%
 	% 摘要
-	\include{chapter/abstract}%此文件中含有中英文摘要
+	 \include{chapter/abstract}%此文件中含有中英文摘要
 	% 目录
 	\tableofcontents
 	%默认表格、插图、算法索引名称分别为“表格索引”、“插图索引”和“算法索引”
@@ -118,7 +118,7 @@
 	\ustcloa
 	
 	%符号说明，需要加入补充包
-	\include{chapter/denotation}%不是必需的，如果不想列出请注释掉
+	 %\include{chapter/denotation}%不是必需的，如果不想列出请注释掉
 \fi
 \makeatother
 
@@ -127,11 +127,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \mainmatter
 
-  \include{chapter/1chap-intro}
-  \include{chapter/2chap-guide}
-  \include{chapter/3chap-example}
+   \include{chapter/1chap-intro}
+   \include{chapter/2chap-guide}
+   \include{chapter/3chap-example}
   %自行添加
   \include{chapter/4chap-faq}
+  \include{chapter/5chap-unify}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 附件部分
