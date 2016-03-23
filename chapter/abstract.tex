@@ -1,15 +1,19 @@
 \begin{cnabstract}
-本文是中国科学技术大学本硕博毕业论文模板示例文件。本模板由ywg@USTC创建，适用于撰写学士、硕士和博士学位论文，本模板由原来的本科模板和硕博模板整合优化而来。本示例文件除了介绍本模板的基础用法外，本文还是一个简要的学位论文写作指南。
+得益于互联网日新月异的演化和普及以及社交网络的流行，商业互联网公司可以获取大量的用户行为信息。大多数公司可以很容易地使用开源软件（OOS）如 Spark 来挖掘用户行为数据，分析、挖掘如此庞大的数据是几年前无法想象的。同样，因为互联网数据的爆发性成长，使得互联网公司迫切需要解决显示特定信息给哪些用户的问题。一种解决方式是根据用户之前的点击、浏览过的历史行为数据，分析、挖掘出用户可能感兴趣的其他信息并推送给用户，互联网公司如小米科技的手机主题个性化推荐系统可以做到千人千面，即根据用户使用偏好给每一个用户展示不同推荐结果。推荐系统的商业价值在于试图通过优化商品和用户的匹配度来销售更多的商品。
 
-\keywords{中国科学技术大学\enskip 学位论文\enskip \LaTeX{}~通用模板\enskip 学士\enskip 硕士\enskip 博士}
+根据本人在小米科技的数据挖掘实习经历，基于互联网的商业推荐系统最大的挑战是：如何根据企业的商业目标和业务特点来优化推荐系统。对于小米科技手机主题业务，需要推荐系统能解决推荐社交化、长尾效应、冷启动等一系列综合问题，而这是一件具有挑战性的工作。
+
+本论文的目的是研究一种融合了用户画像模块、用户兴趣探索模块的动态推荐系统。实验证明相比于传统推荐系统，融合了用户画像模块、用户兴趣探索模块的推荐系统具有多样性、长尾效应和冷启动周期短等优点。其中，用户画像建模使用了信息检索（IR）和数据挖掘（DM）技术，如常用的基于内容的协同推荐算法。基于推荐系统的数据驱动理念，本文也引入了如AB测试的说明。
+
+\keywords{推荐系统\enskip 长尾效应\enskip 动态\enskip 用户画像建模\enskip 用户兴趣探索\enskip}
 \end{cnabstract}
 
 \begin{enabstract}
-Because of the dynamic evolution and propagation of the Internet and the popularization of social networks, huge amounts of information about the users's behaviour are accessible to commercial internet companies. Most companies can be easily approaching OOS(open source software) such as hadoop to analyse and interpreting users's behaviour data-set,which just several years ago was not available or inaccessible. Also because of the evolution and popularization of the Internet and the vast amount of data stored, it has become desirable to moderate and select the content that is being displayed to the user,Mechanisms presenting goods on application try to present content that can interest the user based on his previous queries or browsing history. commercial internet companies such as e.g. Xiaomi filter the phone theme application visiting information and show only phone themes that the user potentially be interested in, trying to sell additional goods by recommender products based on user previous purchase behaviours.
+Because of the dynamic evolution and propagation of the Internet and the popularization of social networks, huge amounts of information about the users's behaviour are accessible to commercial internet companies. Most companies can be easily approaching OOS(open source software) such as spark to analyse and interpreting users's behaviour data-set,which just several years ago was not available or inaccessible. Also because of the evolution and popularization of the Internet and the vast amount of data stored, it has become desirable to moderate and select the content that is being displayed to the user,Mechanisms presenting goods on application try to present content that can interest the user based on his previous queries or browsing history. commercial internet companies such as e.g. Xiaomi filter the phone theme application visiting information and show only phone themes that the user potentially be interested in, trying to sell additional goods by recommender products based on user previous purchase behaviours.
 
 Based on my working experience on Xiaomi as internship, The biggest challenge of recommender systems in commercial internet companies is: How to optimize a recommender system in accordance with the true business objective. for commercial internet company like Xiaomi the fitness recommender system is something that mix the social part, the long-tail, the cold-start and many other factors to finally aproximate what the user really wants. It's really a fascinating and complex working. 
 
-The aim of this paper is analyse the long tail feature and cold start feature of a android phone theme recommender system with the help of user profiles and user interests exploration. In order to build the user profile, Information Retrieval (IR) and Data Mining (DM) techniques such as content-based Collaborative Recommendation and text pre-processing methods have been used; In order to approaching discovery and recommendation in long tail, user interests exploration has been refered. Because of the subjective nature of such a solution, verification process such as A/B test is also introduced.
+The aim of this paper is analyse the long tail feature and dynamic feature of a android phone theme recommender system with the help of user profiles and user interests exploration. In order to build the user profile, Information Retrieval (IR) and Data Mining (DM) techniques such as content-based Collaborative Recommendation have been used. Because of the subjective nature of such a solution, verification process such as A/B test is also introduced.
 
-\enkeywords{recommender systems, long tail, cold start, user profile, user interests exploration}
+\enkeywords{recommender systems, long tail, dynamic, user profile, user interests exploration}
 \end{enabstract}
