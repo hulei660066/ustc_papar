@@ -1,19 +1,19 @@
 \begin{cnabstract}
-得益于互联网日新月异的演化和普及以及社交网络的流行，商业互联网公司可以获取大量的用户行为信息。大多数公司可以很容易地使用开源软件（OOS）如 Spark 来挖掘用户行为数据，分析、挖掘如此庞大的数据是几年前无法想象的。同样，因为互联网数据的爆发性成长，使得互联网公司迫切需要解决显示特定信息给哪些用户的问题。一种解决方式是根据用户之前的点击、浏览过的历史行为数据，分析、挖掘出用户可能感兴趣的其他信息并推送给用户，互联网公司如小米科技的手机主题个性化推荐系统可以做到千人千面，即根据用户使用偏好给每一个用户展示不同推荐结果。推荐系统的商业价值在于试图通过优化商品和用户的匹配度来销售更多的商品。
+信息爆炸使得用户很难有效的从海量的数据中快速获取自己需要的信息，推荐系统凭借精准定位和"千人千面"的个性化服务受到互联网企业的青睐和研究者的重视。本论文讨论了如何构建一个基于用户画像模块和用户兴趣探索模块的手机主题推荐系统，并详细介绍了用户画像建模和用户兴趣探索。
 
-根据本人在小米科技的数据挖掘实习经历，基于互联网的商业推荐系统最大的挑战是：如何根据企业的商业目标和业务特点来优化推荐系统。对于小米科技手机主题业务，需要推荐系统能解决推荐社交化、长尾效应、冷启动等一系列综合问题，而这是一件具有挑战性的工作。
+在小米科技的工作经历让笔者意识到传统的个性化推荐系统面临着诸多挑战，其中最根本的问题是如何根据企业的商业目标和业务特点来优化推荐系统，具体到手机主题行业，推荐系统需要解决社交化、长尾性、冷启动、动态推荐等一系列综合问题。由此，笔者提出并实现了一种基于用户画像和用户兴趣探索的手机主题个性化推荐系统。本文的主要工作和贡献如下:
+\begin{itemize}
+	\item 实现了推荐系统的用户画像模块：利用信息检索（IR）技术从用户注册信息获取到用户的人口属性、职业、地理位置、性别等信息并标签化，不同标签的来源，标签的传递路径，转发关系，标签的本身，以及标签与用户之间的共现关系决定了这个标签对应的权重，权重越高则认为该标签的可信度越高。AB测试显示结合了用户画像的推荐系统提升了约8\%的点击转换率。
+	\item 实现了推荐系统的用户兴趣探索模块：为了迎合用户不断变化着的兴趣，用户兴趣探索使用了特征提取技术和用户满意度量化技术，对每个用户维护一个能动态变化的短期兴趣标签向量空间。首先，利用用户兴趣特征向量和商品特征向量计算出用户-商品的相关分数。然后，利用用户行为（购买，评分，点赞，划屏频率等）量化用户满意度。一次成功的用户兴趣标签探索，首先应该有很低的相关分数和很高的满意度，其次兴趣标签应该是一个小众兴趣标签。实验表明示结合了用户兴趣探索的推荐系统能显著提升推荐商品的多样性。
+	\item 系统地研究了时效性对推荐系统的影响：用户画像针对的是用户的静态信息，代表了用户的长期兴趣，用户兴趣探索针对的是用户的动态信息，代表了用户的短期兴趣，对于不同的行业俩者对用户行为的影响程度也不同。本文提出了基于时间的线性衰减模型能有效融合用户的长、短期兴趣。
+	\item 设计了融合用户画像和用户兴趣探索的原型推荐系统:论文在总结本人在用户画像、用户兴趣探索工作的基础上设计了动态推荐系统。该系统能够实时反馈用户的最新行为,并根据用户行为的变化自动探索出用户新的兴趣,从而不断改善用户在推荐系统中的体验。
+\end{itemize}
 
-本论文的目的是研究一种融合了用户画像模块、用户兴趣探索模块的动态推荐系统。实验证明相比于传统推荐系统，融合了用户画像模块、用户兴趣探索模块的推荐系统具有多样性、长尾效应和冷启动周期短等优点。其中，用户画像建模使用了信息检索（IR）和数据挖掘（DM）技术，如常用的基于内容的协同推荐算法。基于推荐系统的数据驱动理念，本文也引入了如AB测试的说明。
-
-\keywords{推荐系统\enskip 长尾效应\enskip 动态\enskip 用户画像建模\enskip 用户兴趣探索\enskip}
+\keywords{推荐系统\enskip 长尾效应\enskip 动态兴趣\enskip 用户画像建模\enskip 用户兴趣探索\enskip}
 \end{cnabstract}
 
 \begin{enabstract}
-Because of the dynamic evolution and propagation of the Internet and the popularization of social networks, huge amounts of information about the users's behaviour are accessible to commercial internet companies. Most companies can be easily approaching OOS(open source software) such as spark to analyse and interpreting users's behaviour data-set,which just several years ago was not available or inaccessible. Also because of the evolution and popularization of the Internet and the vast amount of data stored, it has become desirable to moderate and select the content that is being displayed to the user,Mechanisms presenting goods on application try to present content that can interest the user based on his previous queries or browsing history. commercial internet companies such as e.g. Xiaomi filter the phone theme application visiting information and show only phone themes that the user potentially be interested in, trying to sell additional goods by recommender products based on user previous purchase behaviours.
 
-Based on my working experience on Xiaomi as internship, The biggest challenge of recommender systems in commercial internet companies is: How to optimize a recommender system in accordance with the true business objective. for commercial internet company like Xiaomi the fitness recommender system is something that mix the social part, the long-tail, the cold-start and many other factors to finally aproximate what the user really wants. It's really a fascinating and complex working. 
-
-The aim of this paper is analyse the long tail feature and dynamic feature of a android phone theme recommender system with the help of user profiles and user interests exploration. In order to build the user profile, Information Retrieval (IR) and Data Mining (DM) techniques such as content-based Collaborative Recommendation have been used. Because of the subjective nature of such a solution, verification process such as A/B test is also introduced.
 
 \enkeywords{recommender systems, long tail, dynamic, user profile, user interests exploration}
 \end{enabstract}
