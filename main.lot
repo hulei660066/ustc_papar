@@ -3,15 +3,12 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces SlopeOne 示例\relax }}{14}{table.caption.12}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces 推荐系统主要算法比较\relax }}{29}{table.caption.16}
-\contentsline {table}{\numberline {3.2}{\ignorespaces MR和spark对比\relax }}{31}{table.caption.17}
+\contentsline {table}{\numberline {3.1}{\ignorespaces 用户-基础静态数据矩阵表\relax }}{33}{table.caption.14}
+\contentsline {table}{\numberline {3.2}{\ignorespaces 用户-基础行为数据表\relax }}{33}{table.caption.15}
+\contentsline {table}{\numberline {3.3}{\ignorespaces 用户-高维数据表\relax }}{34}{table.caption.16}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces 标签权重计算公式\relax }}{40}{table.caption.20}
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces 用户行为和其权重\relax }}{55}{table.caption.28}
-\contentsline {table}{\numberline {5.2}{\ignorespaces A/B测试主要评估指标\relax }}{58}{table.caption.33}
+\contentsline {table}{\numberline {4.1}{\ignorespaces 用户行为权重对应表\relax }}{48}{table.caption.18}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

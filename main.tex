@@ -11,13 +11,71 @@
 
 %仅用于本示例文档中显示特殊字符串
 \usepackage{xltxtra}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{hyperref}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+
+\lstdefinelanguage{json}{
+    basicstyle=\normalfont\ttfamily,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{background},
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 封面部分
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
   % 中文封面内容
-  \title{基于用户画像的手机主题推荐系统}%一般情况下扉页和封皮、书脊共用一个标题文本，可以不用定义\spinetitle（仅硕博有用）, \covertitle（本硕博均有用）和\encovertitle（仅本科有用）。特殊情况见下。
+  \title{基于手机主题推荐系统的用户画像模型}%一般情况下扉页和封皮、书脊共用一个标题文本，可以不用定义\spinetitle（仅硕博有用）, \covertitle（本硕博均有用）和\encovertitle（仅本科有用）。特殊情况见下。
   %\spinetitle{\small{中国科学技术大学本硕博毕业论文模板示例文档\raisebox{-3pt}{(Beta)}}}
   %特殊情况1：本例中\title命令里含有换行控制字符，这会导致制作书脊的时候出现错误，例如如果你注释掉\spinetitle{...}这一行就会报错。这时需要定义一个不含换行等命令的\spinetitle，这并不表示\spinetitle里不能有任何命令——只能使用有限的命令。
   %特殊情况2：本例中标题过长，所以需要缩小书脊标题的字号。
@@ -38,15 +96,15 @@
   \advisor{周武旸\ 教授}
   \coadvisor{张四海\ 博士}%第二导师，没有请注释掉
   \studentid{SA13226110}%For bachelor only
-  \submitdate{二〇一五年十二月}
+  \submitdate{二〇一六年四月}
 
   % 英文封面内容
-  \entitle{The Phone Theme Recommendation System Based on User Profile}
+  \entitle{The User Profile Based on Phone Theme Recommendation System}
   \enauthor{Lei Hu}
   \enmajor{Information Security}
   \enadvisor{Prof. Wuyang Zhou}
   \encoadvisor{Dr. Sihai Zhang}%另外一个导师
-  \ensubmitdate{December 12th, 2015}
+  \ensubmitdate{April 21th, 2016}
   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -100,7 +158,7 @@
 	%硕博论文修改这里
 	%%%%%%%%%%%%%%%%%
 	% 摘要
-	 \include{chapter/abstract}%此文件中含有中英文摘要
+	 \include{chapter/0chap-abstract}%此文件中含有中英文摘要
 	% 目录
 	\tableofcontents
 	%默认表格、插图、算法索引名称分别为“表格索引”、“插图索引”和“算法索引”
@@ -115,7 +173,7 @@
 	\ustclof
 	%算法索引 
 	%如果需要使用算法环境并列出算法索引，请加入补充宏包。
-	\ustcloa
+	%\ustcloa
 	
 	%符号说明，需要加入补充包
 	 %\include{chapter/denotation}%不是必需的，如果不想列出请注释掉
@@ -129,11 +187,11 @@
 
    \include{chapter/1chap-intro}
    \include{chapter/2chap-guide}
-  \include{chapter/5chap-unify}
-   \include{chapter/3chap-example}
+  %\include{chapter/3chap-unify}
+   \include{chapter/4chap-userProfile}
   %自行添加
-  \include{chapter/4chap-faq}
-  \include{chapter/6chap-close}
+  \include{chapter/5chap-userExplore}
+  \include{chapter/6chap-summary}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 附件部分
@@ -143,8 +201,8 @@
   % 参考文献
   % 使用 BibTeX
   % 选择参考文献的排版格式。注意ustcbib这个格式不保证完全符合要求，请自行决定是否使用
-  %\bibliographystyle{ustcbib}%{GBT7714-2005NLang-UTF8}
- % \bibliography{bib/tex}
+  %\bibliographystyle{plain}%{GBT7714-2005NLang-UTF8}
+  %\bibliography{bib/tex}
   %\nocite{*} % for every item
   % 不使用 BibTeX
   \include{chapter/bib}

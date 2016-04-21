@@ -1,0 +1,275 @@
+
+\chapter{用户画像模块}
+\section{引言}
+\label{chap:example}
+Alan Cooper最早提出了用户画像的概念：Personas are a concrete representation of target users。Persona 是真实用户的虚拟代表，是建立在一系列真实数据之上的目标用户画像。通过用户历史行为去了解用户，根据他们的目标、行为和观点的差异，将他们区分为不同的类型，然后每种类型中抽取出典型特征，赋予名字、照片、一些人口统计学要素、兴趣标签等描述，就形成了一个人物原型，\autoref{pic:hl_userProfile}所示为一个典型的用户画像，标签面积越大代表其权重越高。
+
+刻画每个用户，是任何一家社交类型的服务都需要面对的问题，不同的公司针对各自业务会有不同的需求，构建用户画像的动机和目标也会存在一定差异。从手机主题应用的业务特点来讲，构建用户画像的目的包括：
+
+\begin{figure}
+\centering
+  \framebox{\includegraphics[scale=0.35]{figures/hl_userProfile}}
+  \figcaption{用户画像标签示例图}
+  \label{pic:hl_userProfile}
+\end{figure}
+
+\begin{itemize}
+\item 完善及扩充用户信息：用户画像的首要动机就是了解用户，这样才能够提供更优质的服务。但是在实际中用户的信息提供得不尽完整，如对于没有填写性别信息的用户，用户画像通过分析用户语音数据识别其性别，尽可能多的为推荐系统提供正确的基础特征。
+\item 打造健康的主题设计生态圈：在掌握用户信息的基础上，平台就可以对自身的状况进行分析，从相对宏观的基础上把握主题市场的生态环境，挖掘设计作品的最大价值，帮助设计师提高收入。例如通过对用户信息的聚类，能够对用户进行人群的划分，掌握不同人群的活跃程度、行为及兴趣偏好，热门主题的传播方式和流行引爆点等。
+\item 支撑主题推荐系统的精准推荐：精准推荐的前提是对用户的清晰认知。以简单代金券发放为例，手机主题应用市场的历史数据呈现出两大类四种不同的消费习惯。代金券敏感型：发代金券才用、发代金券用的更多；代金券不敏感型：发不发都用，发代金券也不用。在推荐系统的用户画像系统中，上述四种群体会被分别冠以屌丝、普通、中产、土豪的标签。针对四类用户的运营策略也会全然不同，最直接的就是代金券的刺激频率以及刺激金额，而对“代金券”免疫的土豪群体，则更多地需要在优化服务上做文章。在实际场景中，影响用户对手机主题包的使用黏度的因素要远比代金券复杂得多，在这种情况下，利用用户画像可以对用户的“贴身跟踪”就能及时发现薄弱环节，因此从用户打开应用商店到退出使用，其间的每一步情况都被快的记录在案：哪一天退出的，哪一步退出的，退出之后“跳转”到什么软件等等。据此，用户画像也实现了用户另外一个纬度的归类，分清哪部分是忠实用户，哪部分可能是潜在的忠实用户，哪些则是已经流失的；更进一步来看流失的原因：因为代金券没有了流失?主题包质量不好流失?这些都是下一步精准推荐的依据，无论是基于兴趣的推荐提升用户价值，精准的广告投放提升商业价值，还是针对特定用户群体的内容运营，用户画像都是其必不可少的基础支撑。直接地，用户画像可以用于兴趣匹配、关系匹配的推荐和投放；间接地，可以基于用户画像中相似的兴趣、关系及行为模式去推动用户兴趣和设计师的无缝对接。
+\item 主题市场安全领域的应用：随着手机主题市场的发展，商家会通过各种活动形式的补贴来获取用户、培养用户的消费习惯，但同时也催生一些通过刷排行榜、刷红包的用户，这些行为距离欺诈只有一步之遥，但他们的存在严重破环了市场的稳定，侵占了活动的资源。其中一个有效的解决方案就是利用用户画像沉淀方法设置促销活动门槛，即通过记录用户的注册时间、历史登陆次数、常用IP地址等，最大程度上隔离掉僵尸账号，保证市场的稳定发展。
+\end{itemize}
+
+    \section{用户画像数据类型}
+    在个性化服务的用户画像建模中，一个完整、成熟的用户画像应该包含基础静态数据类型、基础行为数据类型和高维数据类型。
+    \subsection{基础静态数据类型}
+    当一个新用户注册时会填写人口基本信息，通过json格式从客户端传回服务器，格式如
+    \begin{lstlisting}[language=json,firstnumber=1]
+        {"registerLog": {
+          "userId": "001",
+          "gender": "male",
+          "profession": "student",
+          "phone": "null",
+          "borthday": "19860820",
+          "isWeiboUser": "no",
+          "isWeixinUser": "yes",
+          "city": "北京市",
+          "timestamp": "1453700393",
+          "...": "..."
+        }}
+    \end{lstlisting}
+    有的用户会利用微信、微博提供的第三方免登陆API，第三方数据可以用来交叉验证用户填写的基础信息数据。用户每次登陆时应用程序还会获得其手机品牌、操作系统等信息。因此，通过解析server log得到基础静态数据形式:
+      \begin{table}[htp]
+      \centering
+      \tabcaption{用户-基础静态数据矩阵表}
+      \label{tab:tagweight}
+      \begin{tabular}{|c|c|c|c|c|c|c|c|} \hline
+       用户id & 性别 & 年龄 & 职业 & 电话号码 & 手机运营商 & 是否为微博用户 & ... \\ \hline
+       001 & 女 & 23 & 学生 & 13948572214 & 移动 & 是 & ... \\ \hline
+       002 & 男 & 30 & 学生 & 15811036703 & 移动 & 是 & ... \\ \hline
+       ... & ... & ... & ... & ... & ... & ... & ... \\ \hline
+      \end{tabular}
+      \end{table}
+
+    \subsection{基础行为数据类型}
+    基础行为数据是指用户的一些行为，包括购买，试用，浏览，评价等的统计量，用户行为数据格式如
+      \begin{lstlisting}[language=json,firstnumber=1]
+        {"actionLog": {
+          "userId": "001"
+          "actions": [{
+              {"itermId": "0822"},
+              {"actionType": "jumpIn"},
+              {"stayTime": "32000"},
+              {"clickNum": "2"},
+              {"scrollNum": "5"},
+              {"timestamp": "1453701393"},
+              {"...": "..."}
+          }]
+        }}
+      \end{lstlisting}
+    基础行为数据作为用户行为统计量可以反映用户的活跃度、消费能力和用户类型。基础行为数据形式如：
+      \begin{table}[htp]
+      \centering
+      \tabcaption{用户-基础行为数据表}
+      \label{tab:tagweight}
+      \begin{tabular}{|c|c|c|c|c|c|c|c|} \hline
+       用户id & 购买 & 试用数 & 浏览 & 未支付订单数 & 活跃时间段 & 日浏览时长 & ... \\ \hline
+       001 & 2 & 7 & 118 & 0 & 20:00-22:00 & 120 & ... \\ \hline
+       002 & 0 & 3 & 7 & 1 & 13:00-14:00 & 60 & ... \\ \hline
+       ... & ... & ... & ... & ... & ... & ... & ... \\ \hline
+      \end{tabular}
+      \end{table}
+
+    \subsection{高维数据类型}
+    高维数据是用户画像模型从基础静态数据和基础行为数据统计、分析、抽象出来，用来衡量用户某一方面的价值，如用户信用是指是否有过作弊行为、退款次数过多等综合评估，用户价值是指购买次数、单笔消费额、消费频率的综合评估。高维数据可以用矩阵来表示：
+      \begin{table}[htp]
+      \centering
+      \tabcaption{用户-高维数据表}
+      \label{tab:tagweight}
+      \begin{tabular}{|c|c|c|c|c|c|c|c|} \hline
+       用户id & 信用 & 价值 & 忠诚度 & 活跃度 & 价格敏感度 & 奖励敏感度 & ... \\ \hline
+       001 & 高 & 高 & 高 & 高 & 低 & 低 & ... \\ \hline
+       002 & 中 & 中 & 高 & 高 & 高 & 高 & ... \\ \hline
+       ... & ... & ... & ... & ... & ... & ... & ... \\ \hline
+      \end{tabular}
+      \end{table}
+
+    \section{用户画像建模}
+    用户画像建模的过程就是原始数据进过处理、分析得到可信度高的用户标签信息的过程，对于不同类型的用户数据其建模的侧重功能点也有所区别。
+    \subsection{基础静态数据建模}
+    用户基础静态数据的特点是数量不多，但在推荐系统中所占的权重较大，因此对其可信度要求较高，在对基础静态数据建模的时候主要实现俩个功能：根据上下文信息补全为为空的标签和根据上下文信息校验已有的标签。
+
+    标签补全以用户性别标签为例，新用户注册时如未填写性别信息其值会默认设为Null，方便用户画像建模时判断。主要思路是通过分析用户上下文信息，包括第三方登入数据、用户语音和头像获得用户真实的性别，如以上方法都未成功获取用户性别，程序会利用线性回归算法挖掘出一个最有可能的性别标签值，代码：
+    \begin{lstlisting}
+      public String getUserGender(String log) {
+          Gson gson = new Gson();
+          UserProfile userProfile = gson.fromJson(log, UserProfile.class);
+
+          if (userProfile.gender != null) {
+              return userProfile.gender;
+          }
+
+          String useId = userProfile.useId;
+          //通过第三方应用登陆数据得到用户信息
+          UserProfile thirdPartUP = gson.fromJson(getThirdPartUserInfo(useId), UserProfile.class);
+          if (thirdPartUP.gender != null) {
+              return thirdPartUP.gender;
+          }
+
+          //通过分析用户语音数据得到用户信息
+          UserProfile voiceUP = gson.fromJson(getUserVoiceUserInfo(useId), UserProfile.class);
+          if (voiceUP.gender != null) {
+              return voiceUP.gender;
+          }
+
+          //通过线性回归算法挖掘出用户信息
+          UserProfile lrUP = gson.fromJson(getLinearRegressionUserInfo(useId), UserProfile.class);
+          return lrUP.gender;
+
+      }
+    \end{lstlisting}
+
+    标签校验是指虽然相关信息已经被填写，但程序认为其值具有随意性，需要根据上下文信息加以确认并校验，标签校验由于考虑的因素较多导致计算量大，使得其应用场景较少，还是以用户性别标签为例，代码：
+    \begin{lstlisting}
+        public String getRightUserGender(String log) {
+        int[] count = {0, 0};
+        Gson gson = new Gson();
+        UserProfile userProfile = gson.fromJson(log, UserProfile.class);
+
+        if (userProfile.gender != null) {
+            if (userProfile.gender.equals("male")) {
+                count[0]++;
+            } else {
+                count[1]++;
+            }
+        }
+
+        String useId = userProfile.useId;
+        UserProfile thirdPartUP = gson.fromJson(getThirdPartUserInfo(useId), UserProfile.class);
+        if (thirdPartUP.gender != null) {
+            if (thirdPartUP.gender.equals("male")) {
+                count[0]++;
+            } else {
+                count[1]++;
+            }
+        }
+
+        UserProfile voiceUP = gson.fromJson(getUserVoiceUserInfo(useId), UserProfile.class);
+        if (voiceUP.gender != null) {
+            if (voiceUP.gender.equals("male")) {
+                count[0]++;
+            } else {
+                count[1]++;
+            }
+        }
+
+        UserProfile lrUP = gson.fromJson(getLinearRegressionUserInfo(useId), UserProfile.class);
+        if (lrUP.gender.equals("male")) {
+            count[0]++;
+        } else {
+            count[1]++;
+        }
+        if (count[0] >= count[1]) {
+            return "male";
+        } else {
+            return "female";
+        }
+    }
+    \end{lstlisting}
+
+    \subsection{基础行为数据建模}
+    基础行为数据建模跟新频率较快，计算量较大，因此采用离线方式利用sql语句从hive表中得出用户在一段时间区间内特定行为的统计数据。需要注意一些用户行为的延迟性，如购买行为，从下单到支付成功可能跨越若干天，因此约定订单量以支付时间为准，有时候遇到网络故障相同订单会被用户提交多次，需要利用distinct做去重操作。统计特定用户某段时间的订单量的sql语句：
+    \begin{lstlisting}
+      set hiveconf:ymdwithline=2016-04-06;
+      set hiveconf:userId=525108009;
+
+      select count(distinct a.order_id) score
+      from theme_dw.dw_v_order_base
+      where concat_ws('-',year,month,day) between date_sub('${hiveconf:ymdwithline}',5) and '${hiveconf:ymdwithline}'
+      and userId='${hiveconf:userId}'
+      and finish_time like '${hiveconf:ymdwithline}%'
+    \end{lstlisting}
+
+    \subsection{高维数据建模}
+    高维数据建模的数据来源包括基础静态数据、基础行为数据，数据类型包括累计量和趋势量，累计量包括用户浏览总数、用户购买总数等，趋势量是指用户最近登录时间、最近购买时间等，利用数据挖掘分类算法得出一个训练模型，需要注意的是用户行为类型、发生时间、发生位置会影响模型的权重计算，即weight = (行为类型 + 时间上下文 + 空间上下文) × 时间衰减因子。其中，用户行为类型包括浏览、购买、搜索、评论、购买、点击赞、收藏等，我们定义购买权重计为5，而浏览仅仅为1。空间上下文是指用户跳转入口方式，我们定义搜索入口权重3，排行榜入口为2。时间上下文是指用户之前是否接触过此类标签，接触频率等。时间衰减因子根据半衰期公式得出，如所示\autoref{equ-half_life}，其中T取值为1，t为行为发生时间距离当前时间的天数。
+    \begin{equation}
+      score=(\frac{1}{2})^{(t/T)}
+      \label{equ-half_life}
+    \end{equation}
+
+    以用户活跃度为例，由于日活跃变动过大，月活跃过于滞后，因此按周统计，模型选择线性回归算法，模型输入为基础静态数据、基础行为数据，模型输出为一个int型整数，值为[1，2，3]，分别对应不活跃、较活跃、活跃。代码：
+    \begin{lstlisting}
+      public int getActivityScore(String userId) throws Exception {
+          String userBaseInfo = getUserBaseInfo(userId);
+          String userActionLog = getUserActionLog(userId);
+          Gson gson = new Gson();
+          String score = getLinearRegressionActivityScore(gson.fromJson(userBaseInfo, UserProfile
+                  .class), gson.fromJson(userActionLog, UserActions.class));
+          double activityScore = Double.parseDouble(score);
+          if (activityScore >= 66) {
+              return 3;
+          } else if (activityScore >= 33) {
+              return 2;
+          } else {
+              return 1;
+          }
+      }
+    \end{lstlisting}
+
+    \section{实验与分析}
+    本节的研究目标是如何利用用户画像给新注册用户做出准确的Top-N推荐并提升用户留存率。
+      \subsection{数据集准备}
+      手机主题应用月新注册用户超过20万个用户，大部分用户的第一个月的行为记录少于10个，我们从2015年9月1号到2015年9月7号这段时间，筛选出所有注册信息相对完整的用户数据作为实验数据集，create table 格式：
+      \begin{lstlisting}[language=json,firstnumber=1]
+        {
+        //静态数据
+        user_id                  int    comment '用户id',
+        user_name                int    comment '用户name',
+        user_age                 int    comment '用户age',
+        create_time              string comment '账号创建时间',
+        city_id                  int    comment '城市id',
+        city_name                string comment '城市名',
+        phone                    int     comment '手机号',
+        os_version               stringt comment '操作系统及版本',
+        phonetype_serial         string  comment '手机品牌及型号',
+        education_level          string  comment '学历',
+        school                   string  comment '学校',
+
+        //行为数据
+        click_num int comment '点击次数',
+        last_click_time int comment '最近点击时间',
+        buy_num int     comment '购买次数',
+        last_buy_time int     comment '最近购买时间',
+        try_use int     comment '试用次数',
+        last_tryuse_time int     comment '最近试用时间',
+        browse_num int     comment '浏览次数',
+        last_browse_time int     comment '最近浏览时间',
+        browse_total_time int     comment '浏览总时长',
+        login_num int     comment '登陆总次数',
+        login_total_time int     comment '登陆总时长',
+        comment_num int     comment '评论总次数',
+
+        //高维数据
+        use_time                 int     comment '使用时间段',
+        not_use_time             int     comment '沉默天数',
+        friendship               list<bigint>  comment '好友关系',
+        friend_group             list<bigint>  comment '好友圈',
+        coupon_sensitivity_score decimal(20,4) comment '券敏感及阈值',
+        purchase_will_score      decimal(20,4) comment '消费意愿',
+        loyal_score              decimal(20,4) comment '忠诚度',
+        credit_score             decimal(20,4) comment '活跃度'
+        }
+      \end{lstlisting}
+      \subsection{评测指标}
+      本节使用线上A/B测试方案\citep{ab-test}，利用用户留存率来评测推荐系统应对冷启动问题的效果。用户留存数是指在某段时间开始使用App应用，经过一段单位时间后仍然继续使用该App应用的用户，用户留存率是指用户留存数占当时新增用户的比例，这里的单位时间取天，实验时间区间为2015年9月7号到2015年9月30号。用户留存率研究对象为新注册用户，反映了推荐系统的转换能力，即由初期的不稳定的用户转化为活跃、稳定、忠诚的用户。
+      \subsection{对比模型}
+      基准模型为融合了用户画像的推荐模型，对照模型为单纯的推荐模型和推荐热门商品的简单推荐模型。每个推荐模型分流10\%的用户流量，推荐算法使用了开源软件spark MLlib的LogisticRegressionWithLBFGS模块，前俩个模型的推荐候选集为全部主题，简单推荐模型的推荐候选集为top20\%热度的主题。我们对比了单纯的推荐模型、推荐热门商品的简单推荐模型和融合了用户画像的推荐模型在2015年9月新注册用户数据集上的用户留存率。\autoref{pic:hl_saveRatio}展示了不同模型的实验结果。图中，横坐标是时间变量，单位为天，纵坐标是用户留存率，每一条曲线代表了一个模型的用户留存率随时间变化的曲线。通过观察曲线可以发现用户留存率随时间流动呈指数分布，头三天就流失了约90\%的新用户，从第四天用户留存率开始停留在一个比较稳定的阈值，实验结果显示，融合了用户画像的推荐模型相对其他模型有更高的留存率。截止到2015年9月30号，融合了用户画像的推荐模型的留存率是10.3\%，比推荐热门商品的简单推荐模型的留存率8.19\%高了2.11个百分点，相对于单纯的推荐模型的留存率5.76\%高了4.54个百分点。由此可见用户画像能够很好的解决冷启动问题并得到较高的新注册用户留存率。
+      \begin{figure}
+      \centering
+        \framebox{\includegraphics[scale=0.55]{figures/hl_saveRatio}}
+        \figcaption{新用户留存率实验对比图}
+        \label{pic:hl_saveRatio}
+      \end{figure}
+
+    \section{本章小结}
+      用户画像对于推荐系统来讲，主要几个方面的提升：提升推荐系统的精度，用户画像将用户的长期偏好融入到了推荐内容中，维护了推荐系统一致性。abtest显示，融合了用户画像的推荐模型比单纯的推荐模型在点击转化率指标提高了约2.8\%，考虑到300万用户的基数，2.8\%的提升是一个很大的进步；用户画像还解决新用户的冷启动问题，对于一个新注册用户来讲，推荐系统可以利用用户画像的静态信息，然后结合商品信息进行推荐；提高推荐系统的时效性，对用户行为的离线预处理，可以节约推荐系统的大部分计算时间。但是用户画像只是反映了用户长期的兴趣，所以无法动态的反映用户短期兴趣，因此我们引入了用户兴趣探索模块，将在下一章节件详细介绍。
