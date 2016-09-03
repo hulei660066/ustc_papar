@@ -3,12 +3,14 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces 用户-物品表\relax }}{15}{table.caption.11}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces 用户-基础静态数据矩阵表\relax }}{33}{table.caption.14}
-\contentsline {table}{\numberline {3.2}{\ignorespaces 用户-基础行为数据表\relax }}{33}{table.caption.15}
-\contentsline {table}{\numberline {3.3}{\ignorespaces 用户-高维数据表\relax }}{34}{table.caption.16}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces 用户行为权重对应表\relax }}{48}{table.caption.18}
+\contentsline {table}{\numberline {4.1}{\ignorespaces 用户-基础静态数据矩阵表\relax }}{31}{table.caption.17}
+\contentsline {table}{\numberline {4.2}{\ignorespaces 用户-基础行为数据表\relax }}{31}{table.caption.18}
+\contentsline {table}{\numberline {4.3}{\ignorespaces 用户-高维数据表\relax }}{32}{table.caption.19}
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces 用户行为权重对应表\relax }}{46}{table.caption.21}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
