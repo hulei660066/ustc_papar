@@ -3,9 +3,9 @@
 
 传统的个性化推荐系统面临着诸多挑战，其中最根本的问题是如何根据企业的商业目标和业务特点来优化推荐系统，具体到手机主题行业，推荐系统需要解决社交化、长尾性、冷启动、动态推荐等一系列综合问题。由此，笔者提出并实现了一种适用于手机主题个性化推荐系统的用户画像模型，本文的主要工作和贡献有：
 \begin{itemize}
-	\item 实现了推荐系统的用户画像模块：利用信息检索（Information Retrieval）技术从用户注册信息获取到用户的人口属性、职业、地理位置、性别等信息并标签化，不同标签的来源，标签的传递路径，转发关系，标签的本身，以及标签与用户之间的共现关系决定了这个标签对应的权重，权重越高则认为该标签的可信度越高。实验显示结合了用户画像的推荐系统能显著提升推荐结果的点击转换率。
-	\item 实现了推荐系统的用户兴趣探索模块：用户兴趣探索通过特征提取技术和用户满意度量化算法，对每个用户维护一个动态变化着的兴趣标签向量空间。首先，利用用户兴趣特征向量和商品特征向量计算出用户-商品的相关分数。然后，利用用户行为（购买、评分、点赞、划屏频率等）量化用户满意度。一次成功的用户兴趣标签探索，首先应该有很低的相关分数和很高的满意度，其次兴趣标签应该是一个小众兴趣标签。实验表明示结合了用户兴趣探索的推荐系统能显著提升推荐结果的多样性。
-	\item 利用线性衰减算法成功融合用户长期兴趣和短期兴趣：用户画像针对的是用户的静态信息，代表了用户的长期兴趣，用户兴趣探索针对的是用户的动态信息，代表了用户的短期兴趣，本文提出了基于时间的线性衰减模型能有效融合用户的长、短期兴趣。
+	\item 实现了推荐系统的用户画像模块。利用信息检索（Information Retrieval）技术从用户注册信息获取到用户的人口属性、职业、地理位置、性别等信息并标签化，不同标签的来源，标签的本身，以及标签与用户之间的共现关系决定着这个标签的初始权重，然后根据用户行为构建相应的AB测试产出标签的实际权重，权重越高则认为该标签对用户影响越大。AB测试显示推荐系统利用用户画像标签进行推荐能显著提升诸如点击转换率等重要指标。
+	\item 实现了推荐系统的用户兴趣探索模块。用户兴趣探索通过特征提取技术和用户满意度量化算法，定期更新用户兴趣标签和标签对应的权重。首先，利用用户兴趣特征向量和商品特征向量计算出用户-商品的相关分数。然后，利用用户行为（购买、评分、点赞、划屏频率等）量化用户满意度。一次成功的用户兴趣标签探索，首先应该有很低的相关分数和很高的满意度，其次兴趣标签应该是一个小众兴趣标签。用户兴趣探索能够实时更新用户的兴趣标签，帮助推荐系统持续满足用户的不断变化的需求。
+	\item 利用时间因子衰减模型融合用户的长期兴趣和短期兴趣：用户画像针对的是用户的静态信息，代表了用户的长期兴趣，用户兴趣探索针对的是用户的动态信息，代表了用户的短期兴趣，衰减模型法的本质是利用自然遗忘规律对用户的兴趣进行衰减。
 \end{itemize}
 
 \keywords{推荐系统\enskip 长尾效应\enskip 动态兴趣\enskip 用户画像建模\enskip 用户兴趣探索\enskip}
@@ -16,7 +16,7 @@ Information explosion in the new age let it's hard for users to get valuable inf
 
 There are so many weekness of the traditional recommended system, the most import one is how to sell more products, specific for android phone application, the recommended system need to solve Socializing problem, cool start problem, dynamic recommend based on timeline and so on. So the author proposed and implemented users profile model and users interested exploration model which include: 
 \begin{itemize}
-	\item Realized the use profile model of recommended system, we use information retrieval technology to get use basic information like occupation, location, gender from user registration information, different tag has different weight depending on the way they got, the path of they transfer and the relation between use and tags, the more weight of tag the high of credibility the tag has. AB test show that recommended system has improved 8\% of click conversion rate.
+	\item Realized the use profile model of recommended system, we use information retrieval technology to get use basic information like occupation, location, gender from user registration information, different tag has different weight depending on the way they got, the path of they transfer and the relation between use and tags, the more weight of tag the high of credibility the tag has. AB test show that recommended system can improve click conversion rate rapidly.
 	\item Realized the users interested exploration model of recommended system, which using feature extraction technology and user satisfaction scoring algorithm, we maintain a dynamic interesting tags vector space for all user. first, we can get user-item-scores by product users interesting vector metric and items feature metric. Then get the users satisfaction based on users history actions like buying, rateing, clicking and so on. one successful exploration means it has low user-item-relation-scores and high user satisfaction, and the tag also is minority. Experiments show that with the users interested exploration model, the recommended system has more long-tail effect.
 	\item Sucessfully put user long term interesting and short term interesting into one model using linear decay algorithm, users profile model contains static infomation of users, users interested exploration model contains dynamic infomation of users interesting, this papar come up with the strategy to balance the static infomation and the dynamic infomation.
 \end{itemize}
