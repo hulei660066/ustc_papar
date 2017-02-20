@@ -169,7 +169,7 @@
   \end{lstlisting}
 
   \subsection{基础行为数据建模}
-  基础行为数据建模跟新频率较快，计算量较大，因此采用离线方式利用sql语句从hive表中得出用户在一段时间区间内特定行为的统计数据。需要注意一些用户行为的延迟性，如购买行为，从下单到支付成功可能跨越若干天，因此约定订单量以支付时间为准，有时候遇到网络故障相同订单会被用户提交多次，需要利用distinct做去重操作。统计特定用户某段时间的订单量的sql语句如\autoref{code:order_sql}
+  基础行为数据建模更新频率较快，计算量较大，因此采用离线方式利用sql语句从hive表中得出用户在一段时间区间内特定行为的统计数据。需要注意一些用户行为的延迟性，如购买行为，从下单到支付成功可能跨越若干天，因此约定订单量以支付时间为准，有时候遇到网络故障相同订单会被用户提交多次，需要利用distinct做去重操作。统计特定用户某段时间的订单量的sql语句如\autoref{code:order_sql}
   \begin{lstlisting}[language=SQL,firstnumber=1,label={code:order_sql}]
     set hiveconf:ymdwithline=2016-04-06;
     set hiveconf:userId=525108009;
