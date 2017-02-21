@@ -1,13 +1,7 @@
 
 \chapter{用户画像模块}
 \section{引言}
-\label{chap:example}
-\begin{figure}
-\centering
-  \framebox{\includegraphics[scale=0.35]{figures/hl_userProfile}}
-  \figcaption{用户画像标签示例图}
-  \label{pic:hl_userProfile}
-\end{figure}
+
 小米手机主题用户画像是根据用户社会属性、生活习惯和消费行为等信息而抽象出的一个标签化的用户模型。构建用户画像的核心工作包括：1、给用户贴标签，而标签是通过对用户信息分析而来的高度精炼的特征标识。2、对每个用户标签赋予一定权重以代表该用户对该标签的偏好度。\autoref{pic:hl_userProfile}所示为一个典型的用户画像，标签面积越大代表其权重越高。小米手机主题用户画像的标签是结构化的，最下层是用户基础信息，包括姓名、年龄、经纬度、职业等，中层是用户的兴趣标签，如正太控、动漫控、运动达人等，最上层是抽象标签，如高、中、低忠诚度用户，高、中、低价值用户等，所以对于用户画像的建模过程，就是不断的丰富标签和抽象标签的过程。具体工作包括：从各个维度上对人群细分，完善画像体系，同时针对每类细分人群，丰富群体特征。
 
 
@@ -29,6 +23,14 @@
       "...": "..."
     }}
 \end{lstlisting}
+
+\label{chap:example}
+\begin{figure}
+\centering
+  \framebox{\includegraphics[scale=0.35]{figures/hl_userProfile}}
+  \figcaption{用户画像标签示例图}
+  \label{pic:hl_userProfile}
+\end{figure}
 有的用户会利用微信、微博提供的第三方免登陆API，第三方数据可以用来交叉验证用户填写的基础信息数据。用户每次登陆时应用程序还会获得其手机品牌、操作系统等信息。因此，通过解析server log得到基础静态数据形式:
   \begin{table}[htp]
   \centering

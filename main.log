@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2017.1.16)  20 FEB 2017 22:22
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2017.1.16)  21 FEB 2017 21:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2037,11 +2037,7 @@ LaTeX Warning: Label `tab:tagweight' multiply defined.
 LaTeX Warning: Label `tab:tagweight' multiply defined.
 
 ) (./chapter/5chap-userExplore.aux) (./chapter/6chap-summary.aux)
-(./chapter/bib.aux
-
-Package natbib Warning: Citation `temporal-cf' multiply defined.
-
-) (./chapter/thanks.aux))
+(./chapter/bib.aux) (./chapter/thanks.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 111.
@@ -2537,17 +2533,17 @@ File: figures/hl_iterate.jpg Graphic file (type QTm)
 (./chapter/4chap-userProfile.tex
 第四章
 File: figures/hl_userProfile.png Graphic file (type QTm)
-<use  "figures/hl_userProfile.png" > [30
+<use  "figures/hl_userProfile.png" >
+Overfull \hbox (11.04387pt too wide) in paragraph at lines 39--45
+ [][] 
+ []
+
+[30
 
 
 
 ]
-Overfull \hbox (11.04387pt too wide) in paragraph at lines 37--43
- [][] 
- []
-
-
-Overfull \hbox (5.02136pt too wide) in paragraph at lines 66--72
+Overfull \hbox (5.02136pt too wide) in paragraph at lines 68--74
  [][] 
  []
 
@@ -2633,20 +2629,13 @@ imesNewRoman(0)/m/it/10.5 Collaborative filtering\EU1/TimesNewRoman(0)/m/n/10.5
 
 
 ]
-
-Package natbib Warning: There were multiply defined citations.
-
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 197.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 197.
-(./main.aux (./chapter/0chap-abstract.aux) (./chapter/1chap-intro.aux)
-(./chapter/2chap-guide.aux
-
-Package natbib Warning: Citation(s) may have changed.
-(natbib)                Rerun to get citations correct.
-
-) (./chapter/3chap-unify.aux) (./chapter/4chap-userProfile.aux)
-(./chapter/5chap-userExplore.aux) (./chapter/6chap-summary.aux)
-(./chapter/bib.aux) (./chapter/thanks.aux))
+ (./main.aux
+(./chapter/0chap-abstract.aux) (./chapter/1chap-intro.aux)
+(./chapter/2chap-guide.aux) (./chapter/3chap-unify.aux)
+(./chapter/4chap-userProfile.aux) (./chapter/5chap-userExplore.aux)
+(./chapter/6chap-summary.aux) (./chapter/bib.aux) (./chapter/thanks.aux))
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 197.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 197.
 
@@ -2665,6 +2654,6 @@ Here is how much of TeX's memory you used:
  38161 multiletter control sequences out of 15000+600000
  56124 words of font info for 239 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 69i,12n,71p,10411b,1863s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 69i,12n,71p,10411b,1848s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on main.pdf (67 pages).
