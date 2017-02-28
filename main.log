@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2017.1.16)  23 FEB 2017 16:22
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2017.1.16)  1 MAR 2017 00:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2480,13 +2480,11 @@ File: figures/user_profile.jpg Graphic file (type QTm)
 .................................................
 [15]
 File: figures/recmd_facebook.png Graphic file (type QTm)
- <use  "figures/recmd_facebook.png" > [16] [17]
-File: figures/recmd_doubanFM.png Graphic file (type QTm)
-
-<use  "figures/recmd_doubanFM.png" > [18]) [19]
+ <use  "figures/recmd_facebook.png" > [16] [17]) [18]
 \openout2 = `chapter/3chap-unify.aux'.
 
- (./chapter/3chap-unify.tex
+
+(./chapter/3chap-unify.tex
 第三章
 File: figures/construct.jpg Graphic file (type QTm)
 <use  "figures/construct.jpg" >
@@ -2504,13 +2502,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--18
 
  []
 
-[20
+[19
 
 
 
-] [21] [22]
+] [20] [21]
 File: figures/hl_iterate.jpg Graphic file (type QTm)
- <use  "figures/hl_iterate.jpg" > [23]) [24]
+ <use  "figures/hl_iterate.jpg" > [22]) [23]
 \openout2 = `chapter/4chap-userProfile.aux'.
 
 
@@ -2522,7 +2520,7 @@ Overfull \hbox (11.04387pt too wide) in paragraph at lines 39--45
  [][] 
  []
 
-[25
+[24
 
 
 
@@ -2531,84 +2529,66 @@ Overfull \hbox (5.02136pt too wide) in paragraph at lines 68--74
  [][] 
  []
 
-[26] [27] [28]
+[25] [26] [27]
 (/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2014/09/06 1.5e listings language file
-) [29]
-[30] [31]
+) [28]
+[29] [30]
 File: figures/hl_saveRatio.png Graphic file (type QTm)
- <use  "figures/hl_saveRatio.png" >) [32] [33]
+ <use  "figures/hl_saveRatio.png" >) [31] [32]
 \openout2 = `chapter/5chap-userExplore.aux'.
 
 
 (./chapter/5chap-userExplore.tex
 第五章
-[34
+[33
 
 
 
-] [35] [36] [37] [38] [39]
-Overfull \hbox (9.76222pt too wide) in paragraph at lines 234--244
+] [34]
+Overfull \hbox (21.0574pt too wide) in paragraph at lines 66--67
+[]\EU1/SongtiSC(0)/m/n/12.045 小 众 标 签 集。|  小 众 标 签 集 是 指 出 现 频 率 低 的 主 题 标 签 的 
+集 合，|  代 码 如[][]\EU1/TimesNewRoman(0)/m/n/12.045 Listing 5.3.1[][][]\EU1/Songti
+SC(0)/m/n/12.045 。| 
+ []
+
+[35] [36] [37] [38]
+Overfull \hbox (9.76222pt too wide) in paragraph at lines 235--245
  [][] 
  []
 
-[40] [41] [42]
+[39] [40] [41]
 File: figures/hl_themeNumber.png Graphic file (type QTm)
  <use  "figures/hl_themeNumber.png" >
 File: figures/hl_buyLookRatio.png Graphic file (type QTm)
 
-<use  "figures/hl_buyLookRatio.png" >) [43] [44] [45]
+<use  "figures/hl_buyLookRatio.png" > [42]) [43]
 \openout2 = `chapter/6chap-summary.aux'.
 
-
-(./chapter/6chap-summary.tex
+ (./chapter/6chap-summary.tex
 第六章
-[46
+[44
 
 
 
-]) [47]
+]) [45]
 \openout2 = `chapter/bib.aux'.
 
- (./chapter/bib.tex [48
+ (./chapter/bib.tex [46
 
 
 
 
 ]
-Underfull \hbox (badness 2443) in paragraph at lines 209--212
-[]\EU1/SongtiSC(0)/m/n/10.5 山 西 晚 报\EU1/TimesNewRoman(0)/m/n/10.5 , \EU1/Songti
-SC(0)/m/n/10.5 科 学 频 道\EU1/TimesNewRoman(0)/m/n/10.5 .2015.  \EU1/SongtiSC(0)/m
-/it/10.5 大 数 据 揭 秘：|  淘 宝 上 的 假 货、|  次 品 都 卖 给 了 谁？| \EU1/TimesNewRoman(0)/m/n/
-10.5 .
+Underfull \hbox (badness 1478) in paragraph at lines 170--173
+\EU1/TimesNewRoman(0)/m/it/10.5 ple[DB/OL]\EU1/TimesNewRoman(0)/m/n/10.5 .  htt
+ps://code.facebook.com/posts/861999383875667/recommending-items-to-
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 219--222
-[]\EU1/SongtiSC(0)/m/n/10.5 稳 国 柱\EU1/TimesNewRoman(0)/m/n/10.5 . 2015.  \EU1/S
-ongtiSC(0)/m/it/10.5 寻 路 推 荐 豆 瓣 推 荐 系 统 实 践 之 路 \EU1/TimesNewRoman(0)/m/it/10.
-5 [DB/OL]\EU1/TimesNewRoman(0)/m/n/10.5 .
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 224--227
-[]\EU1/SongtiSC(0)/m/n/10.5 知 乎 网 网 友\EU1/TimesNewRoman(0)/m/n/10.5 . 2011.  \E
-U1/SongtiSC(0)/m/it/10.5 豆 瓣 \EU1/TimesNewRoman(0)/m/it/10.5 FM \EU1/SongtiSC(0
-)/m/it/10.5 的 推 荐 算 法 是 怎 样 的 \EU1/TimesNewRoman(0)/m/it/10.5 [DB/OL]\EU1/Times
-NewRoman(0)/m/n/10.5 .
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 234--237
-[]\EU1/TimesNewRoman(0)/m/n/10.5 From Wikipedia, the free encyclopedia.  \EU1/T
-imesNewRoman(0)/m/it/10.5 Collaborative filtering[J]\EU1/TimesNewRoman(0)/m/n/1
-0.5 .
- []
-
-) [49]
+) [47]
 \openout2 = `chapter/thanks.aux'.
 
- (./chapter/thanks.tex) [50
+ (./chapter/thanks.tex) [48
 
 
 
@@ -2632,12 +2612,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 35389 strings out of 493706
- 660928 string characters out of 6145769
+ 35290 strings out of 493706
+ 656802 string characters out of 6145769
  772813 words of memory out of 5000000
- 38156 multiletter control sequences out of 15000+600000
- 56124 words of font info for 239 fonts, out of 8000000 for 9000
+ 38059 multiletter control sequences out of 15000+600000
+ 56116 words of font info for 238 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 69i,12n,71p,10411b,1848s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 69i,12n,71p,10411b,1866s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (60 pages).
+Output written on main.pdf (58 pages).
