@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2017.1.16)  1 MAR 2017 00:48
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2017.1.16)  1 MAR 2017 20:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2432,7 +2432,38 @@ File: figures/userprofile_process.jpg Graphic file (type QTm)
  <use  "figures/userprofile_process.jpg" > [12] [13]
 File: figures/user_profile.jpg Graphic file (type QTm)
 
-<use  "figures/user_profile.jpg" > [14]
+<use  "figures/user_profile.jpg" > [14] [15]
+File: figures/recmd_facebook.png Graphic file (type QTm)
+
+<use  "figures/recmd_facebook.png" > [16]) [17]
+\openout2 = `chapter/3chap-unify.aux'.
+
+ (./chapter/3chap-unify.tex
+第三章
+File: figures/construct.jpg Graphic file (type QTm)
+<use  "figures/construct.jpg" >
+Overfull \hbox (3.4314pt too wide) in paragraph at lines 11--12
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--18
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--18
+
+ []
+
+[18
+
+
+
+]
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 18.
+
 *************************************************
 * fontspec warning: "script-not-exist"
 * 
@@ -2478,37 +2509,9 @@ File: figures/user_profile.jpg Graphic file (type QTm)
 . and font adjustment code:
 . 
 .................................................
-[15]
-File: figures/recmd_facebook.png Graphic file (type QTm)
- <use  "figures/recmd_facebook.png" > [16] [17]) [18]
-\openout2 = `chapter/3chap-unify.aux'.
-
-
-(./chapter/3chap-unify.tex
-第三章
-File: figures/construct.jpg Graphic file (type QTm)
-<use  "figures/construct.jpg" >
-Overfull \hbox (3.4314pt too wide) in paragraph at lines 11--12
- [][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 16--18
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 16--18
-
- []
-
-[19
-
-
-
-] [20] [21]
+[19] [20]
 File: figures/hl_iterate.jpg Graphic file (type QTm)
- <use  "figures/hl_iterate.jpg" > [22]) [23]
+ <use  "figures/hl_iterate.jpg" > [21]) [22]
 \openout2 = `chapter/4chap-userProfile.aux'.
 
 
@@ -2516,11 +2519,11 @@ File: figures/hl_iterate.jpg Graphic file (type QTm)
 第四章
 File: figures/hl_userProfile.png Graphic file (type QTm)
 <use  "figures/hl_userProfile.png" >
-Overfull \hbox (11.04387pt too wide) in paragraph at lines 39--45
+Overfull \hbox (11.04387pt too wide) in paragraph at lines 38--44
  [][] 
  []
 
-[24
+[23
 
 
 
@@ -2529,52 +2532,45 @@ Overfull \hbox (5.02136pt too wide) in paragraph at lines 68--74
  [][] 
  []
 
-[25] [26] [27]
+[24] [25] [26]
 (/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2014/09/06 1.5e listings language file
-) [28]
-[29] [30]
+) [27]
+[28]
 File: figures/hl_saveRatio.png Graphic file (type QTm)
- <use  "figures/hl_saveRatio.png" >) [31] [32]
+ <use  "figures/hl_saveRatio.png" >) [29] [30]
 \openout2 = `chapter/5chap-userExplore.aux'.
 
 
 (./chapter/5chap-userExplore.tex
 第五章
-[33
+[31
 
 
 
-] [34]
-Overfull \hbox (21.0574pt too wide) in paragraph at lines 66--67
-[]\EU1/SongtiSC(0)/m/n/12.045 小 众 标 签 集。|  小 众 标 签 集 是 指 出 现 频 率 低 的 主 题 标 签 的 
-集 合，|  代 码 如[][]\EU1/TimesNewRoman(0)/m/n/12.045 Listing 5.3.1[][][]\EU1/Songti
-SC(0)/m/n/12.045 。| 
- []
-
-[35] [36] [37] [38]
-Overfull \hbox (9.76222pt too wide) in paragraph at lines 235--245
+] [32] [33] [34] [35] [36]
+Overfull \hbox (9.76222pt too wide) in paragraph at lines 226--236
  [][] 
  []
 
-[39] [40] [41]
+[37] [38]
 File: figures/hl_themeNumber.png Graphic file (type QTm)
- <use  "figures/hl_themeNumber.png" >
+ <use  "figures/hl_themeNumber.png" > [39]
 File: figures/hl_buyLookRatio.png Graphic file (type QTm)
 
-<use  "figures/hl_buyLookRatio.png" > [42]) [43]
+<use  "figures/hl_buyLookRatio.png" >) [40] [41]
 \openout2 = `chapter/6chap-summary.aux'.
 
  (./chapter/6chap-summary.tex
 第六章
-[44
+[42
 
 
 
-]) [45]
+]) [43]
 \openout2 = `chapter/bib.aux'.
 
- (./chapter/bib.tex [46
+ (./chapter/bib.tex [44
 
 
 
@@ -2585,10 +2581,10 @@ Underfull \hbox (badness 1478) in paragraph at lines 170--173
 ps://code.facebook.com/posts/861999383875667/recommending-items-to-
  []
 
-) [47]
+) [45]
 \openout2 = `chapter/thanks.aux'.
 
- (./chapter/thanks.tex) [48
+ (./chapter/thanks.tex) [46
 
 
 
@@ -2612,12 +2608,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 35290 strings out of 493706
- 656802 string characters out of 6145769
- 772813 words of memory out of 5000000
- 38059 multiletter control sequences out of 15000+600000
+ 35065 strings out of 493706
+ 652153 string characters out of 6145769
+ 761813 words of memory out of 5000000
+ 37834 multiletter control sequences out of 15000+600000
  56116 words of font info for 238 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 69i,12n,71p,10411b,1866s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 69i,12n,71p,10411b,1907s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (58 pages).
+Output written on main.pdf (56 pages).

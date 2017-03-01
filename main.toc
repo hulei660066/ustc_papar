@@ -21,54 +21,54 @@
 \contentsline {subsection}{\numberline {2.2.2}用户画像的构建周期}{13}{subsection.2.2.2}
 \contentsline {subsection}{\numberline {2.2.3}用户画像的建模}{14}{subsection.2.2.3}
 \contentsline {subsection}{\numberline {2.2.4}用户画像和推荐系统的评测}{15}{subsection.2.2.4}
-\contentsline {section}{\numberline {2.3}用户画像在推荐系统的应用现状}{16}{section.2.3}
+\contentsline {section}{\numberline {2.3}用户画像在推荐系统的应用现状}{15}{section.2.3}
 \contentsline {subsection}{\numberline {2.3.1}基于用户画像的推荐系统的商业应用}{16}{subsection.2.3.1}
 \contentsline {subsection}{\numberline {2.3.2}推荐系统的主要方法}{17}{subsection.2.3.2}
-\contentsline {section}{\numberline {2.4}本章小结}{18}{section.2.4}
-\contentsline {chapter}{\numberline {第三章\hspace {0.3em}}手机主题推荐系统整体设计与实现}{19}{chapter.3}
-\contentsline {section}{\numberline {3.1}引言}{19}{section.3.1}
+\contentsline {section}{\numberline {2.4}本章小结}{17}{section.2.4}
+\contentsline {chapter}{\numberline {第三章\hspace {0.3em}}手机主题推荐系统整体设计与实现}{18}{chapter.3}
+\contentsline {section}{\numberline {3.1}引言}{18}{section.3.1}
 \contentsline {section}{\numberline {3.2}手机主题推荐系统设计}{19}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}数据采集和日志格式化}{21}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}用户画像的收集}{21}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}商品标签的构建}{21}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {3.2.4}候选集的生成}{22}{subsection.3.2.4}
-\contentsline {subsection}{\numberline {3.2.5}排序}{22}{subsection.3.2.5}
-\contentsline {section}{\numberline {3.3}用户画像与用户兴趣探索}{22}{section.3.3}
-\contentsline {section}{\numberline {3.4}用户画像与推荐系统}{23}{section.3.4}
-\contentsline {section}{\numberline {3.5}本章小结}{23}{section.3.5}
-\contentsline {chapter}{\numberline {第四章\hspace {0.3em}}用户画像模块}{24}{chapter.4}
-\contentsline {section}{\numberline {4.1}引言}{24}{section.4.1}
-\contentsline {section}{\numberline {4.2}用户画像数据类型}{24}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}基础静态数据类型}{24}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}基础行为数据类型}{25}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {3.2.1}数据采集和日志格式化}{20}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}用户画像的收集}{20}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}商品标签的构建}{20}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}候选集的生成}{20}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.5}排序}{21}{subsection.3.2.5}
+\contentsline {section}{\numberline {3.3}用户画像与用户兴趣探索}{21}{section.3.3}
+\contentsline {section}{\numberline {3.4}用户画像与推荐系统}{21}{section.3.4}
+\contentsline {section}{\numberline {3.5}本章小结}{22}{section.3.5}
+\contentsline {chapter}{\numberline {第四章\hspace {0.3em}}用户画像模块}{23}{chapter.4}
+\contentsline {section}{\numberline {4.1}引言}{23}{section.4.1}
+\contentsline {section}{\numberline {4.2}用户画像数据类型}{23}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}基础静态数据类型}{23}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}基础行为数据类型}{24}{subsection.4.2.2}
 \contentsline {subsection}{\numberline {4.2.3}高维数据类型}{25}{subsection.4.2.3}
-\contentsline {section}{\numberline {4.3}用户画像建模}{26}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}基础静态数据建模}{26}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}基础行为数据建模}{28}{subsection.4.3.2}
+\contentsline {section}{\numberline {4.3}用户画像建模}{25}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}基础静态数据建模}{25}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}基础行为数据建模}{27}{subsection.4.3.2}
 \contentsline {subsection}{\numberline {4.3.3}高维数据建模}{28}{subsection.4.3.3}
-\contentsline {section}{\numberline {4.4}实验与分析}{29}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}评测指标}{30}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}对比模型}{31}{subsection.4.4.2}
-\contentsline {section}{\numberline {4.5}本章小结}{31}{section.4.5}
-\contentsline {chapter}{\numberline {第五章\hspace {0.3em}}用户兴趣探索}{33}{chapter.5}
-\contentsline {section}{\numberline {5.1}引言}{33}{section.5.1}
-\contentsline {section}{\numberline {5.2}用户行为数据的存储和处理}{33}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}数据预处理}{33}{subsection.5.2.1}
-\contentsline {section}{\numberline {5.3}用户兴趣探索模型}{34}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}基本概念概述}{35}{subsection.5.3.1}
-\contentsline {subsection}{\numberline {5.3.2}兴趣标签探测功能模块}{37}{subsection.5.3.2}
-\contentsline {subsection}{\numberline {5.3.3}长尾标签抽取功能模块}{37}{subsection.5.3.3}
-\contentsline {subsection}{\numberline {5.3.4}用户满意度量化功能模块}{38}{subsection.5.3.4}
-\contentsline {section}{\numberline {5.4}用户画像和用户兴趣探索的融合}{39}{section.5.4}
-\contentsline {section}{\numberline {5.5}实验与分析}{41}{section.5.5}
-\contentsline {subsection}{\numberline {5.5.1}数据集准备}{41}{subsection.5.5.1}
-\contentsline {subsection}{\numberline {5.5.2}评测指标}{42}{subsection.5.5.2}
-\contentsline {subsection}{\numberline {5.5.3}对比模型}{42}{subsection.5.5.3}
-\contentsline {subsection}{\numberline {5.5.4}实验结果}{42}{subsection.5.5.4}
-\contentsline {section}{\numberline {5.6}本章小结}{43}{section.5.6}
-\contentsline {chapter}{\numberline {第六章\hspace {0.3em}}结束语}{44}{chapter.6}
-\contentsline {section}{\numberline {6.1}研究工作总结}{44}{section.6.1}
-\contentsline {section}{\numberline {6.2}对未来工作的展望}{45}{section.6.2}
-\contentsline {chapter}{参考文献}{46}{chapter*.22}
-\contentsline {chapter}{致\hspace {\ccwd }谢}{48}{chapter*.23}
+\contentsline {section}{\numberline {4.4}实验与分析}{28}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}评测指标}{29}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}对比模型}{29}{subsection.4.4.2}
+\contentsline {section}{\numberline {4.5}本章小结}{29}{section.4.5}
+\contentsline {chapter}{\numberline {第五章\hspace {0.3em}}用户兴趣探索}{31}{chapter.5}
+\contentsline {section}{\numberline {5.1}引言}{31}{section.5.1}
+\contentsline {section}{\numberline {5.2}用户行为数据的存储和处理}{31}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}数据预处理}{31}{subsection.5.2.1}
+\contentsline {section}{\numberline {5.3}用户兴趣探索模型}{32}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}基本概念概述}{33}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}兴趣标签探测功能模块}{34}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}长尾标签抽取功能模块}{35}{subsection.5.3.3}
+\contentsline {subsection}{\numberline {5.3.4}用户满意度量化功能模块}{36}{subsection.5.3.4}
+\contentsline {section}{\numberline {5.4}用户画像和用户兴趣探索的融合}{37}{section.5.4}
+\contentsline {section}{\numberline {5.5}实验与分析}{39}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}数据集准备}{39}{subsection.5.5.1}
+\contentsline {subsection}{\numberline {5.5.2}评测指标}{39}{subsection.5.5.2}
+\contentsline {subsection}{\numberline {5.5.3}对比模型}{39}{subsection.5.5.3}
+\contentsline {subsection}{\numberline {5.5.4}实验结果}{40}{subsection.5.5.4}
+\contentsline {section}{\numberline {5.6}本章小结}{41}{section.5.6}
+\contentsline {chapter}{\numberline {第六章\hspace {0.3em}}结束语}{42}{chapter.6}
+\contentsline {section}{\numberline {6.1}研究工作总结}{42}{section.6.1}
+\contentsline {section}{\numberline {6.2}对未来工作的展望}{43}{section.6.2}
+\contentsline {chapter}{参考文献}{44}{chapter*.22}
+\contentsline {chapter}{致\hspace {\ccwd }谢}{46}{chapter*.23}
 \contentsfinish 
