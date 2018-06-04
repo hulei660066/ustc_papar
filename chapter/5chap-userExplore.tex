@@ -41,14 +41,6 @@
         where concat_ws('-',year,month,day) = '${hiveconf:ymdwithline}'
     ) b
     on a.order_id = b.order_id
-    inner join (
-        select order_id
-        from theme.pay_info
-        where ymd = ${hiveconf:ymdwithline}
-            //status=1代表当前订单状态为已支付
-            and status=1
-    ) d
-    on a.order_id = d.order_id
     group by metric;
   \end{lstlisting}
 
@@ -61,71 +53,10 @@
 
   用户满意度。用户满意度是指根据用户作用在主题上的不同行为动作及其属性值，反推得到的用户偏好度。
 
-  小众标签集。小众标签集是指用户偏好频率低的主题标签的集合，需要补充是，长尾标签和小众标签大多数是一致的，只是长尾标签针对商品而言，小众标签针对用户而言。代码如\autoref{code:cold-tag}。
-  \begin{lstlisting}[language=java,firstnumber=1,label={code:cold-tag}, caption={小众标签集抽取算法}]
-    public HashSet<String> getColdTags() throws Exception {
-        Map<String, String> tagsCount = new TreeMap<>();
-
-        //获取所有主题包
-        Map<String, Object> allThemes = getAllThemes();
-        for (Map.Entry<String, Object> theme : allThemes.entrySet()) {
-            String themeName = theme.getKey();
-            //获取当前主题的所有标签
-            Object themeTags = ((Map<String, Object>) theme.getValue()).get("tags");
-            for (String tag : (Set<String>) themeTags) {
-                //出现一次，tag 对应的count加1
-                tagsCount.put(tag, tagsCount.get(tag) + 1);
-            }
-        }
-
-        //这里将map.entrySet()转换成list
-        List<Map.Entry<String, String>> list = new ArrayList<Map.Entry<String, String>>(tagsCount
-                .entrySet());
-        //然后通过比较器来实现排序
-        Collections.sort(list, new Comparator<Map.Entry<String, String>>() {
-            //升序排序
-            public int compare(Map.Entry<String, String> o1, Map.Entry<String, String> o2) {
-                return o1.getValue().compareTo(o2.getValue());
-            }
-        });
-
-        HashSet<String> out = new HashSet<>();
-        //取频率最小的标签作为小众标签
-        double threshold = list.size() * 0.8;
-        for (int i = 0; i <= threshold; i++) {
-            out.add(list.get(i).getKey());
-        }
-
-        return out;
-    }
-  \end{lstlisting}
+  小众标签集。小众标签集是指用户偏好频率低的主题标签的集合，需要补充是，长尾标签和小众标签大多数是一致的，只是长尾标签针对商品而言，小众标签针对用户而言。
 
   \subsection{兴趣标签探测功能模块}
-  首先候选标签是与用户相关度低的标签，如用户001每次都会浏览动漫、美少女主题，但是有一天却购买了一款汽车手机主题，通过计算发现汽车标签对于用户001是从未遇到过的标签，即相关度为0，于是汽车标签将会是潜在的探索标签。事实上用户兴趣探索过程可以在很短的时间内完成，基于 Hive + HDFS 平台的时长维度为天，而基于 Kafka + Spark 平台可以将时长维度降到小时级别。代码如\autoref{code:tag-explore}。
-  \begin{lstlisting}[language=java,firstnumber=1,label={code:tag-explore}, caption={兴趣标签探测算法}]
-    public Set<String> tagExplore(String userId, String itemId) throws Exception {
-        Gson gson = new Gson();
-        //获取当前用户对当前主题的所有行为，只计算前一天的行为
-        List<UserActions> actions = getActionsByUserIdAndItemId(userId, itemId);
-        //获取用户详细信息
-        String userInfo = getUserBaseInfo(userId);
-        UserProfile userProfile = gson.fromJson(userInfo, UserProfile.class);
-        Map<String, Double> userTags = userProfile.tags;
-
-        Set<String> out = new HashSet<>();
-        for (UserActions action : actions) {
-            //获取主题详细信息
-            Map<String, Object> itemBaseInfo = getItemBaseInfo(action.itemId);
-            Set<String> tags = (Set<String>) itemBaseInfo.get("tags");
-            for (String tag : tags) {
-                if (!userTags.containsKey(tag)) {
-                    out.add(tag);
-                }
-            }
-        }
-        return out;
-    }
-  \end{lstlisting}
+  首先候选标签是与用户相关度低的标签，如用户001每次都会浏览动漫、美少女主题，但是有一天却购买了一款汽车手机主题，通过计算发现汽车标签对于用户001是从未遇到过的标签，即相关度为0，于是汽车标签将会是潜在的探索标签。事实上用户兴趣探索过程可以在很短的时间内完成，基于 Hive + HDFS 平台的时长维度为天，而基于 Kafka + Spark 平台可以将时长维度降到小时级别。
 
   \subsection{长尾标签抽取功能模块}
   首先需要介绍标签集中度(tagFocus)和标签热度(tagPopular)，标签集中度针对商品而言，标签热度针对用户而言。
@@ -167,57 +98,7 @@
   \end{lstlisting}
 
   \subsection{用户满意度量化功能模块}
-    \autoref{tab:userAction}列举的用户行为包含了部分关键的行为类型，通过将不同行为反映为用户喜好的不同并进行加权累积，得到用户对于物品的总体喜好。显式的用户反馈比隐式的权值大，但比较稀疏，毕竟进行显示反馈的用户是少数；而隐式用户行为数据是用户在使用应用过程中产生的，它可能存在大量的噪音和用户的误操作，通过数据挖掘算法滤掉可能的噪音，这样使分析更加精确。然后是归一化操作，因为不同行为的数据取值可能相差很大，比如，用户的浏览数据必然比购买数据大的多，如何将各个行为的数据统一在一个相同的取值范围中，从而使得加权求和得到的总体喜好更加精确，就需要进行归一化处理使得数据取值在 [0，10] 范围中，代码如\autoref{code:user-satisfy-score}。
-  \begin{lstlisting}[language=java,firstnumber=1,label={code:user-satisfy-score}, caption={用户满意度量化算法}]
-    public Map<String, String> getUseSatisfyScore(String userId, String itemId) {
-        //获取当前用户对当前主题包的所有行为
-        List<UserActions> actions = getActionsByUserIdAndItemId(userId, itemId);
-        double score = 0.0;
-        int clickNum = 0;
-        int scrollNum = 0;
-        for (UserActions action : actions) {
-            if (action.actionType.equals("buy") || action.actionType.equals("tryUse") || action
-                    .actionType.equals("favor")) {
-                return new HashMap<String, String>() {{
-                    put("score", "1");
-                    put("msg", "very like");
-                }};
-            } else if (action.actionType.equals("down")) {
-                return new HashMap<String, String>() {{
-                    put("score", "0");
-                    put("msg", "not like at all");
-                }};
-            } 
-
-            if (action.actionType.equals("click")) {
-                clickNum++;
-                if (clickNum <= 5) {
-                    score += 0.2;
-                }
-            } else if (action.actionType.equals("scroll")) {
-                scrollNum++;
-                //滑动屏幕一次且停留时长超过3秒,说明用户对内容感兴趣
-                if (scrollNum <= 5 && action.duration * 1000 > 3000) 
-                    score += 0.5;
-            } else if (action.actionType.equals("share")) {
-                score += 1.5;
-            } else if (action.actionType.equals("comment")) {
-                score += 1.0;
-            } else if (action.actionType.equals("star")) {
-                //用户评分,值为1到5星
-                if(action.starLevel>=4)
-                  score += action.starScore;
-            }
-        }
-
-        //正则化
-        score = (score-MIN)/(MAX-MIN)
-        HashMap<String, String> ret = new HashMap<>();
-        ret.put("score", String.valueOf(score));
-        ret.put("msg", "user intereting in this item");
-        return ret;
-    }
-  \end{lstlisting}
+    \autoref{tab:userAction}列举的用户行为包含了部分关键的行为类型，通过将不同行为反映为用户喜好的不同并进行加权累积，得到用户对于物品的总体喜好。显式的用户反馈比隐式的权值大，但比较稀疏，毕竟进行显示反馈的用户是少数；而隐式用户行为数据是用户在使用应用过程中产生的，它可能存在大量的噪音和用户的误操作，通过数据挖掘算法滤掉可能的噪音，这样使分析更加精确。然后是归一化操作，因为不同行为的数据取值可能相差很大，比如，用户的浏览数据必然比购买数据大的多，如何将各个行为的数据统一在一个相同的取值范围中，从而使得加权求和得到的总体喜好更加精确，就需要进行归一化处理使得数据取值在 [0，10] 范围中。
 
     \begin{table}[htp]
     \centering
@@ -241,45 +122,7 @@
 
   这样假设的意义在于我们可以照搬物理学的牛顿冷却定律(\href{http://www.evanmiller.org/rank-hotness-with-newtons-law-of-cooling.html}{Newton's Law of Cooling})，建立标签权重与时间之间的函数关系：本期分数 = 上期分数 - 冷却系数$*$间隔天数。其中，冷却系数决定了标签融合的更新率，如果想放慢更新率，冷却系数就取一个较小的值，否则就取一个较大的值。
 
-  标签权重的线性衰减算法结合了手机主题用户长期兴趣和短期兴趣，根据时间因素权重自动进行衰减，能准确反映用户兴趣的变化趋势。该模型是指用户对兴趣标签的权重仅代表评价当时的兴趣度，随着时间的推移，用户对该标签的权重将规律性地自动衰减，当权重衰减到 0 时，标签将被淘汰，代码如\autoref{code:merge-profile-explore}。
-  \begin{lstlisting}[language=java,firstnumber=1,label={code:merge-profile-explore}, caption={标签权重的线性衰减算法}]
-      public void tagLinearecay(String userId) throws Exception {
-        //获取当前用户当前所有有过行为的主题包
-        Set<String> items = getAllItems(userId);
-        //获取当前用户的画像
-        UserProfile userProfile = getUserProfile(userId);
-        for (String item : items) {
-            //获取当前用户对当前标签的权重
-            Map<String, String> useSatisfyScore = getUseSatisfyScore(userId, item);
-            //threshold为逻辑回归算法训练出的阈值
-            if (Double.parseDouble(useSatisfyScore.get("score")) > threshold) {
-                //获取所有成功探索的标签
-                Set<String> effectTags = getLongTailTags(userId, item);
-                for (String effectTag : effectTags) {
-                    userProfile.tags.put(effectTag, 5);
-                }
-            }
-        }
-        //得到用户行为中所有的主题标签
-        Set<String> allActionTags = getAllActionTags(userId);
-        for (Map.Entry<String, Double> userTag : userProfile.tags.entrySet()) {
-            String tag = userTag.getKey();
-            double score = userTag.getValue();
-            if (!allActionTags.contains(tag)) {
-                //将旧标签权重减少 0.5，进行衰减。
-                score -=0.5;
-                if(score<=0){
-                    //如果当前标签权重降低0以下，则移除该标签
-                    userProfile.tags.remove(tag);  
-                }else {
-                    userProfile.tags.put(tag, score);
-                }
-            }else {
-                //do nothing
-            }
-        }
-    }
-  \end{lstlisting}
+  标签权重的线性衰减算法结合了手机主题用户长期兴趣和短期兴趣，根据时间因素权重自动进行衰减，能准确反映用户兴趣的变化趋势。该模型是指用户对兴趣标签的权重仅代表评价当时的兴趣度，随着时间的推移，用户对该标签的权重将规律性地自动衰减，当权重衰减到 0 时，标签将被淘汰。
 
 
 \section{实验与分析}
